@@ -1,37 +1,91 @@
-#The player starts in tile (1,1). At the beginning, and after each move selected by the player, the
-#program should print the player’s travel options. If there is an open wall in a direction, write that
-#direction as a possible travel direction.
+x = 1
+y  = 1
 
-positions : possible_directions
-(1,1) : (N)orth
-(1,2) : (N)orth,  (E)ast, (S)outh,
-(1,3) : (E)ast, (S)outh
-(2,1) : (N)orth
-(2,2) : (S)outh, (W)est
-(2,3) : (W)est, (E)ast 
-(3,1) : (N)orht
-(3,2) : (S)outh, (N)orth 
-(3,3) : (S)outh, (W)est 
-
-if position is (1,1):
-    possible_direction = (N)orth
-elif position is (1,2):
-    possible_direction = (N)orth or  (E)ast or (S)outh
-elif position is (1,3):
-    possible_direction = (E)ast or (S)outh
-elif position is (2,1):
-    possible_direction = (N)orth
-elif position is (2,2):
-    possible_direction = (S)outh or (W)est
-elif position is ()
-print("You can travel: ", possible_directions)
-print("Direction: "input_direction)
-print("Not a valid direction")
+NORTH = "n"
+SOUTH = "s"
+WEST = "w"
+EAST ="e"
 
 
+possible_directions = "(N)orth"
+isValid = True
 
 
-starting_point = (1,1)
+while x != 3 or y != 1: 
+
+    if isValid == True:
+        print("You can travel: ", possible_directions)
+    move = input("Direction: ")
+    isValid = True
+
+    if (x is 1 and y is 1 ) or (x is 2 and y is 1):
+        if move.lower() != NORTH:
+            isValid = False
+
+    elif x is 1 and y is 2:
+        if move.lower() != EAST and move.lower() != SOUTH and move.lower() != NORTH:
+            isValid = False
+
+    elif x is 1 and y is 3:        
+        if move.lower() != EAST and move.lower() != SOUTH:
+            isValid = False
+
+    elif (x is 2 and y is 2) or (x is 3 and y is 3):
+        if move.lower() != SOUTH and move.lower() != WEST:
+            isValid = False
+
+    elif x is 2 and y is 3: 
+        if move.lower() != EAST and move.lower() != WEST:
+            isValid = False
+
+    elif x is 3 and y is 2:
+        if move.lower() != NORTH and move.lower() != SOUTH:
+            isValid = False
+
+    if isValid == True:
+        if move.lower()== NORTH and y < 3:
+            y +=1
+        elif move.lower()== SOUTH and y > 1:
+            y -=1     
+        elif move.lower()== WEST and x > 1:
+            x -=1
+        elif move.lower() == EAST and x < 3:
+            x +=1
+        else:
+            isValid = False
+
+    if (x is 1 and y is 1 ) or (x is 2 and y is 1):
+        possible_directions = "(N)orth"
+
+    elif x is 1 and y is 2:
+        possible_directions = "(N)orth or (E)ast or (S)outh"
+
+    elif x is 1 and y is 3:        
+        possible_directions = "(E)ast or (S)outh"
+
+    elif (x is 2 and y is 2) or (x is 3 and y is 3):
+        possible_directions = "(S)outh or (W)est"
+
+    elif x is 2 and y is 3:
+        possible_directions = "(W)est or (E)ast" 
+
+    elif x is 3 and y is 2:
+        possible_directions ="(S)outh or (N)orth"
+
+
+    if isValid == False:
+        print("Not a valid direction")
+
+
+else:
+    print("Victory!")
+
+
+
+
+
+
+    
 
 
 
@@ -39,21 +93,16 @@ starting_point = (1,1)
 
 
 
-output:
-You can travel: (N)orth.
-Direction: s
-Not a valid direction!
-Direction: n
-You can travel: (N)orth or (E)ast or (S)outh.
-Direction: N
-You can travel: (E)ast or (S)outh.
-Direction: w
-Not a valid direction!
-Direction: E
-You can travel: (E)ast or (W)est.
-Direction: e
-You can travel: (S)outh or (W)est.
-Direction: s
-You can travel: (N)orth or (S)outh.
-Direction: S
-Victory!
+
+
+
+
+
+
+
+
+
+
+
+
+
