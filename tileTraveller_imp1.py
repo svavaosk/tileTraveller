@@ -7,14 +7,14 @@ WEST = "w"
 EAST ="e"
 
 
-possible_directions = "(N)orth"
+possible_directions = "(N)orth."
 isValid = True
 
 
 while x != 3 or y != 1: 
 
     if isValid == True:
-        print("You can travel: ", possible_directions)
+        print("You can travel:", possible_directions)
     move = input("Direction: ")
     isValid = True
 
@@ -55,26 +55,26 @@ while x != 3 or y != 1:
             isValid = False
 
     if (x is 1 and y is 1 ) or (x is 2 and y is 1):
-        possible_directions = "(N)orth"
+        possible_directions = "(N)orth."
 
     elif x is 1 and y is 2:
-        possible_directions = "(N)orth or (E)ast or (S)outh"
+        possible_directions = "(N)orth or (E)ast or (S)outh."
 
     elif x is 1 and y is 3:        
-        possible_directions = "(E)ast or (S)outh"
+        possible_directions = "(E)ast or (S)outh."
 
     elif (x is 2 and y is 2) or (x is 3 and y is 3):
-        possible_directions = "(S)outh or (W)est"
+        possible_directions = "(S)outh or (W)est."
 
     elif x is 2 and y is 3:
-        possible_directions = "(W)est or (E)ast" 
+        possible_directions = "(E)ast or (W)est." 
 
     elif x is 3 and y is 2:
-        possible_directions ="(S)outh or (N)orth"
+        possible_directions ="(N)orth or (S)outh."
 
 
     if isValid == False:
-        print("Not a valid direction")
+        print("Not a valid direction!")
 
 
 else:
